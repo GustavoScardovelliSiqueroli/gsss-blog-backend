@@ -11,8 +11,7 @@ async_connection_string = "postgresql+asyncpg://{}:{}@{}/{}".format(
     config.db_host,
     config.db_port,
 )
-
 async_engine = create_async_engine(async_connection_string, echo=True)
-async_session = sessionmaker(async_engine, class_=AsyncSession)
+async_session = sessionmaker(async_engine, class_=AsyncSession)  # type: ignore
 
 Base = declarative_base()

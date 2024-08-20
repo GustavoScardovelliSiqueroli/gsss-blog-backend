@@ -1,12 +1,10 @@
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-  # Ruff version.
     rev: v0.1.4
     hooks:
-      # Run the linter.
       - id: ruff
-      # Run the formatter.
       - id: ruff-format
+
   - repo: local
     hooks:
       - id: requirements
@@ -15,3 +13,12 @@ repos:
         language: system
         pass_filenames: false
         stages: [commit]
+      - id: mypy
+        name: mypy
+        entry: "mypy --explicit-package-bases --ignore-missing-imports"
+        language: python
+        language_version: python3.12
+        additional_dependencies: ["mypy==1.11.1"]
+        types: [python]
+        require_serial: true
+        verbose: true
