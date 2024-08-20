@@ -27,5 +27,7 @@
     "python.linting.enabled": true,
     "python.linting.ruffEnabled": true,
     "python.formatting.provider": "ruff",
-    "python.sortImports.path": "ruff"
+    "python.sortImports.path": "ruff",
+    "python.languageServer": "Pylance",
+    "python.analysis.typeCheckingMode": "standard"
 }
