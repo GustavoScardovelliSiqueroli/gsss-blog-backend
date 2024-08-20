@@ -13,6 +13,8 @@
         "**/__pycache__": true,
         "**/*.pytest_cache": true,
         ".venv": true,
+        ".ruff_cache": true,
+        // "**/__init__.py": true
         //    "**/migrations": true
     },
     "[python]": {
@@ -29,5 +31,5 @@
     "python.formatting.provider": "ruff",
     "python.sortImports.path": "ruff",
     "python.languageServer": "Pylance",
-    "python.analysis.typeCheckingMode": "standard"
+    "python.analysis.typeCheckingMode": "strict"
 }
