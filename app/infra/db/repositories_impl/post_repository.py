@@ -1,3 +1,4 @@
+# pyright: reportReturnType=false
 from sqlalchemy import Select
 from typing import Any
 from app.infra.db.database import async_session
@@ -12,7 +13,7 @@ class PostRepository(PostRepositoryInterface):
         async with async_session() as session:
             stmt: ... = Select(Post)
             results = await session.execute(stmt)
-            return results.scalars().all()  # type: ignore
+            return results.scalars().all()
 
     async def create(self, data: Post) -> Post:
         async with async_session() as session:

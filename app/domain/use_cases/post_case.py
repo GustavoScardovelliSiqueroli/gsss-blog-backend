@@ -1,7 +1,9 @@
+# pyright: reportAttributeAccessIssue=false
 from app.domain.repository_interfaces.post_repository_interface import (
     PostRepositoryInterface,
 )
 from app.domain.models.post import Post
+from datetime import datetime
 
 
 class PostCase:
@@ -9,6 +11,7 @@ class PostCase:
         self.repository = repository
 
     async def create_post(self, data: Post) -> Post:
+        data.created_at = datetime.now()
         return await self.repository.create(data)
 
     async def get_all_posts(self) -> list[Post]:

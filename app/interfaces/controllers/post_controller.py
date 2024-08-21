@@ -12,7 +12,6 @@ def get_post_repository() -> PostRepository:
     return PostRepository()
 
 
-# Função que retorna uma instância do caso de uso
 def get_post_case(
     repository: PostRepository = Depends(get_post_repository),
 ) -> PostCase:
