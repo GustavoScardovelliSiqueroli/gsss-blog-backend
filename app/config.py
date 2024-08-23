@@ -1,9 +1,15 @@
 from pydantic_settings import BaseSettings
+from typing import Optional
 
 
 class Config(BaseSettings):
-    db_user: str = "postgres"
-    db_password: str = "1234"
-    db_host: str = "localhost"
-    db_name: str = "blog_db"
-    db_port: int = 5432
+    DB_USER: str = "postgres"
+    DB_PASSWORD: str = "1234"
+    DB_HOST: str = "localhost"
+    DB_NAME: str = "blog_db"
+    DB_PORT: int = 5432
+    SECRET_KEY: Optional[str] = None
+
+    class Config:
+        env_file = ".env"
+        env_file_encoding = "utf-8"

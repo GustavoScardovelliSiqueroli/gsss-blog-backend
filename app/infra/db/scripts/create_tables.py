@@ -1,7 +1,9 @@
 import asyncio
 from app.infra.db.database import async_engine, Base
+from app.domain.models.user import User
 from app.domain.models.post import Post
 
+user = User
 post = Post
 
 
