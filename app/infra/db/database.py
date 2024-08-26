@@ -6,6 +6,7 @@ from sqlalchemy.ext.asyncio import async_sessionmaker
 
 config = Config()
 
+
 async_connection_string = "postgresql+asyncpg://{}:{}@{}:{}/{}".format(
     config.DB_USER,
     config.DB_PASSWORD,

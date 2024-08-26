@@ -9,6 +9,7 @@ class Config(BaseSettings):
     DB_NAME: str = "blog_db"
     DB_PORT: int = 5432
     SECRET_KEY: Optional[str] = None
+    API_KEY: Optional[str] = None
 
     class Config:
         env_file = ".env"

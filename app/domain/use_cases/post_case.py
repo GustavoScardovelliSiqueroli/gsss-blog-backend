@@ -10,8 +10,9 @@ class PostCase:
     def __init__(self, repository: PostRepositoryInterface):
         self.repository = repository
 
-    async def create_post(self, data: Post) -> Post:
+    async def create_post(self, data: Post, id_user: str) -> Post:
         data.created_at = datetime.now()
+        data.id_user = id_user
         return await self.repository.create(data)
 
     async def get_all_posts(self) -> list[Post]:

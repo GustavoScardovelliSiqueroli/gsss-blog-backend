@@ -19,7 +19,8 @@ class UserRepository(UserRepositoryInterface):
     async def get_by_username(self, username: str) -> Optional[User]:
         async with async_session() as session:
             stmt: ... = Select(User).where(User.username == username)
-            return session.scalar(stmt)
+            results = await session.execute(stmt)
+            return results.scalar()
 
     async def create(self, data: User) -> User:
         async with async_session() as session:
@@ -32,8 +33,11 @@ class UserRepository(UserRepositoryInterface):
     async def get_by_id(self, id: Any) -> User:
         ...
 
-    async def update(self, id: Any, data: User) -> User:
+    async def ate(self, id: Any, data: User) -> User:
         ...
 
     async def delete(self, id: Any) -> User:
+        ...
+
+    async def update(self, id: Any, data: User) -> User:
         ...
